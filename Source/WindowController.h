@@ -34,13 +34,14 @@
 @class OutputDeviceHandler;
 @class MainPlayerToolbarController;
 @class AppleRemoteController;
+@class SPMediaKeyTap;
 
 extern const NSString *nProfileSwitched;
 extern const NSString *dProfile;
 
 @class SUUpdater;
 
-@interface WindowController : NSObject {
+@interface WindowController : NSObject <NSApplicationDelegate> {
 	// controller
 	IBOutlet PlayListController *mPlaylistController;
 	IBOutlet InfoAreaController *mInfoAreaController;
@@ -92,6 +93,7 @@ extern const NSString *dProfile;
 	
 	MainPlayerToolbarController *_mainPlayerToolbarController;
 	AppleRemoteController *_appleRemoteController;
+	SPMediaKeyTap *_mediaKeyTap;
 }
 
 + (id) instance;
