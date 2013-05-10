@@ -44,6 +44,8 @@
 - (void) setFloatValue:(float)aValue;
 - (float) floatValue;
 
+- (int) intValue;
+
 - (void) setTarget:(id)aTarget;
 - (void) setAction:(SEL)aAction;
 

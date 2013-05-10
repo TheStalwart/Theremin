@@ -88,6 +88,10 @@
 	return [mSlider floatValue];
 }
 
+- (int) intValue {
+	return [mSlider intValue];
+}
+
 - (void) setTarget:(id)aTarget {
 	[mSlider setTarget:aTarget];
 }
