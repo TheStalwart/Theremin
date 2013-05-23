@@ -155,13 +155,16 @@
 			}
 	
 	PlayListFile *file = [mPlaylists objectAtIndex:[mPlayListFilesView selectedRow]];
+	currentPlaylist = [file filePath];
 	[[[WindowController instance] musicClient] loadPlaylist:file];
 	[[[WindowController instance] musicClient] startPlayback];
 }
 
 - (void) saveCurrentPlaylist {
-	[mSavePlayListName setStringValue:@""];
-	
+	if(currentPlaylist == nil){
+		currentPlaylist = @"";
+	}
+	[mSavePlayListName setStringValue: currentPlaylist];
 	NSWindow *mainWindow = [[WindowController instance] window];
 	[NSApp beginSheet:mSavePlayListAsPanel modalForWindow:mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }

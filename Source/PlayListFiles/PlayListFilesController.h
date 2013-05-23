@@ -41,6 +41,8 @@
 	BOOL mDraggingSupported;
 	NSString *mPathOfNamedPlaylistBeingFetched;
 	NSArray *mFetchedNamedPlaylist;
+	
+	NSString *currentPlaylist;
 }
 - (id) init;
 - (void) dealloc;
