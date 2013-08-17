@@ -28,6 +28,7 @@
 	IBOutlet NSButton *mDeleteButton;
 	
 	NSArray *mPlaylists;
+    NSArray *sortedPlaylists;
 	NSTimer *mStartProgressTimer;
 	NSDate *mRefreshDate;
 	

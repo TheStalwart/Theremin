@@ -64,6 +64,7 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
 	[mPlaylists release], mPlaylists = nil;
+    [sortedPlaylists release], mPlaylists = nil;
 	[mStartProgressTimer release], mStartProgressTimer = nil;
 	[mRefreshDate release], mRefreshDate = nil;
 	[super dealloc];
@@ -130,8 +131,18 @@
 
 - (void) foundPlaylists:(NSNotification *)aNotification {
 	[mPlaylists release];
+
 	mPlaylists = [[[aNotification userInfo] objectForKey:@"Entries"] retain];
-	
+    
+    [sortedPlaylists release];
+    sortedPlaylists = [[mPlaylists sortedArrayUsingComparator:^(id a, id b) {
+        NSString *first = [[(PlayListFile*)a filePath] lastPathComponent];
+        NSString *second = [[(PlayListFile*)b filePath] lastPathComponent];
+        if(first==nil || second==nil) return (NSComparisonResult)NSOrderedSame;
+        NSLog (@"a='%@' b='%@'", first, second);
+        return (NSComparisonResult)[first caseInsensitiveCompare:second];
+    }] retain];
+
 	[mPlayListFilesView setEnabled:YES];
 	[mPlayListFilesView reloadData];
 	
@@ -154,7 +165,7 @@
 				return;
 			}
 	
-	PlayListFile *file = [mPlaylists objectAtIndex:[mPlayListFilesView selectedRow]];
+	PlayListFile *file = [sortedPlaylists objectAtIndex:[mPlayListFilesView selectedRow]];
 	[[[WindowController instance] musicClient] loadPlaylist:file];
 	[[[WindowController instance] musicClient] startPlayback];
 }
@@ -190,7 +201,8 @@
 	if ([[PreferencesController sharedInstance] noConfirmationNeededForDeletionOfPlaylist])
 		[self deleteSelectedPlaylist];
 	else {
-		PlayListFile *file = [mPlaylists objectAtIndex:[mPlayListFilesView selectedRow]];
+
+		PlayListFile *file = [sortedPlaylists objectAtIndex:[mPlayListFilesView selectedRow]];
 		[mDeleteConfirmationLabel setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Are you sure you want to delete the playlist \"%@\"?", @"Question if the user wants to delete the playlist"),
 			[[file filePath] lastPathComponent]]];
 		
@@ -218,7 +230,7 @@
 }
 
 - (void) deleteSelectedPlaylist {
-	PlayListFile *file = [mPlaylists objectAtIndex:[mPlayListFilesView selectedRow]];
+	PlayListFile *file = [sortedPlaylists objectAtIndex:[mPlayListFilesView selectedRow]];
 	[[[WindowController instance] musicClient] deletePlaylist:file];
 }
 
@@ -250,14 +262,14 @@
 }
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView {
-	return [mPlaylists count];
+	return [sortedPlaylists count];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex {
 	if ([[aTableColumn identifier] isEqualToString:@"Playlist Icon"]) {
 		return [NSImage imageNamed:@"PlayListIcon"];
 	} else if ([[aTableColumn identifier] isEqualToString:@"Playlist Name"]) {
-		return [[[mPlaylists objectAtIndex:rowIndex] filePath] lastPathComponent];
+		return [[[sortedPlaylists objectAtIndex:rowIndex] filePath] lastPathComponent];
 	}
 	
 	return nil;
@@ -270,7 +282,8 @@
 	int index = [rowIndexes firstIndex];
 	
 	[pboard declareTypes:[NSArray arrayWithObject:gMpdUniqueIdentifierType] owner:self];
-	[pboard setString:[[mPlaylists objectAtIndex:index] filePath] forType:@"PLAYLISTPATH"];
+    
+	[pboard setString:[[sortedPlaylists objectAtIndex:index] filePath] forType:@"PLAYLISTPATH"];
 	return YES;
 }
 
