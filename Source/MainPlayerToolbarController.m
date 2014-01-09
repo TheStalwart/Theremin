@@ -161,9 +161,9 @@ NSString *tSearchField = @"tSearchField";
 	bool shuffleState = [[[notification userInfo] objectForKey:@"shuffleState"] boolValue];
 	
 	if (shuffleState)
-		[_shuffleItem setImage:[NSImage imageNamed:@"shuffleOn"]];
-	else
 		[_shuffleItem setImage:[NSImage imageNamed:@"shuffleOff"]];
+	else
+		[_shuffleItem setImage:[NSImage imageNamed:@"shuffleOn"]];
 }
 
 - (void) volumeShouldChange:(id)sender {
