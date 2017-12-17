@@ -668,4 +668,8 @@
 	return 0; //For subclasses
 }
 
+- (BOOL)_anySegmentShowsBadge {
+	return NO;
+}
+
 @end

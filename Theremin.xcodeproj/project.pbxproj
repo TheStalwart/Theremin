@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02FEFB791FE6D6DD00507D46 /* FileBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FEFB781FE6D6DC00507D46 /* FileBrowser.xib */; };
+		02FEFB7C1FE6D73D00507D46 /* FileBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FEFB7B1FE6D73D00507D46 /* FileBrowserController.m */; };
 		428B50B116FA613B00415CBA /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 428B50A316FA613B00415CBA /* NSObject+SPInvocationGrabbing.m */; };
 		428B50B216FA613B00415CBA /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 428B50A516FA613B00415CBA /* SPMediaKeyTap.m */; };
 		428B50B816FA66F300415CBA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428B50B716FA66F300415CBA /* Carbon.framework */; };
@@ -198,6 +200,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02FEFB781FE6D6DC00507D46 /* FileBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FileBrowser.xib; path = Resources/FileBrowser.xib; sourceTree = "<group>"; };
+		02FEFB7A1FE6D73D00507D46 /* FileBrowserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileBrowserController.h; sourceTree = "<group>"; };
+		02FEFB7B1FE6D73D00507D46 /* FileBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileBrowserController.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -528,6 +533,8 @@
 				43A5D1AC0BAC2F7100C29E17 /* PlayListFilesController.m */,
 				437EB69F0BBDBA480033AE88 /* SongInfoController.h */,
 				437EB6A00BBDBA480033AE88 /* SongInfoController.m */,
+				02FEFB7A1FE6D73D00507D46 /* FileBrowserController.h */,
+				02FEFB7B1FE6D73D00507D46 /* FileBrowserController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -823,6 +830,7 @@
 				480249E215E7AFB40029CBC7 /* LicenseWindow.xib */,
 				480249E415E7B10B0029CBC7 /* Preferences.xib */,
 				480249E615E7B3310029CBC7 /* UpdateDatabase.xib */,
+				02FEFB781FE6D6DC00507D46 /* FileBrowser.xib */,
 				480249EA15E7B7580029CBC7 /* Library.xib */,
 				480249E815E7B3990029CBC7 /* MainMenu.xib */,
 				480249E015E7ADE40029CBC7 /* PlayListFiles.xib */,
@@ -1178,6 +1186,7 @@
 				43F0BAEE0BBE980A00018704 /* TB_Segment_LeftCapPress.tiff in Resources */,
 				43F0BAEF0BBE980A00018704 /* TB_Segment_LeftCapRoll.tiff in Resources */,
 				43F0BAF00BBE980A00018704 /* TB_Segment_RightCap.tiff in Resources */,
+				02FEFB791FE6D6DD00507D46 /* FileBrowser.xib in Resources */,
 				43F0BAF10BBE980A00018704 /* TB_Segment_RightCapInactive.tiff in Resources */,
 				43F0BAF20BBE980A00018704 /* TB_Segment_RightCapPress.tiff in Resources */,
 				43F0BAF30BBE980A00018704 /* TB_Segment_RightCapRoll.tiff in Resources */,
@@ -1304,6 +1313,7 @@
 				43FFC4040FC202C7002620C0 /* HIDRemoteControlDevice.m in Sources */,
 				43FFC4050FC202C7002620C0 /* MultiClickRemoteBehavior.m in Sources */,
 				43FFC4060FC202C7002620C0 /* RemoteControl.m in Sources */,
+				02FEFB7C1FE6D73D00507D46 /* FileBrowserController.m in Sources */,
 				43FFC4070FC202C7002620C0 /* RemoteControlContainer.m in Sources */,
 				43FFC40B0FC202D2002620C0 /* AppleRemoteController.m in Sources */,
 				43BD366A1052E628001E30F0 /* debug_printf.c in Sources */,

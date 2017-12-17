@@ -26,6 +26,7 @@
 #import "LicenseController.h"
 #import "LibraryController.h"
 #import "MainPlayerToolbarController.h"
+#import "FileBrowserController.h"
 
 #import "PlayListFilesController.h"
 #import "UpdateDatabaseController.h"
@@ -236,6 +237,7 @@ const NSString *dProfile = @"dProfile";
 	mPlayListFilesController = [[PlayListFilesController alloc] init];
 	mLibraryController = [[LibraryController alloc] init];
 	mUpdateDatabaseController = [[UpdateDatabaseController alloc] init];
+	mFileBrowserController = [[FileBrowserController alloc] init];
 	
 	[self setupConnectionWithMusicClient];
 	
@@ -252,6 +254,7 @@ const NSString *dProfile = @"dProfile";
 	[mLibraryController release];
 	[mUpdateDatabaseController release];
 	[mPlayListFilesController release], mPlayListFilesController = nil;
+	[mFileBrowserController release];
 	
 	[_outputDeviceHandler release];
 	[_appleRemoteController release];
@@ -668,8 +671,7 @@ const NSString *dProfile = @"dProfile";
 }
 
 - (IBAction)showFileBrowser:(id)sender {
-#warning implement me
-    NSLog(@"Show file browser");
+	[mFileBrowserController show];
 }
 
 - (IBAction) showUpdateDatabase:(id)sender {

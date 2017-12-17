@@ -25,6 +25,7 @@
 NSString *gDirectoryPropertyPath = @"gDirectoryPropertyPath"; 
 NSString *gDirectoryPropertyDirectoryEntries = @"gDirectoryPropertyDirectoryEntries";
 NSString *gDirectoryPropertyParent = @"gDirectoryPropertyParent";
+NSString *gDirectoryPropertyDirectorySongEntries = @"gDirectoryPropertyDirectorySongEntries";
 
 @implementation Directory
 + (id)directoryWithPath:(NSString *)aPath {
@@ -118,7 +119,25 @@ NSString *gDirectoryPropertyParent = @"gDirectoryPropertyParent";
 	
 	NSArray *entries = [[[WindowController instance] musicClient] entriesInDirectory:self withTypes:eDirectoryType];
 	[mValues setObject:entries forKey:gDirectoryPropertyDirectoryEntries];
+	
+	NSArray *songs = [[[WindowController instance] musicClient] entriesInDirectory:self withTypes:eSongType];
+	[mValues setObject:songs forKey:gDirectoryPropertyDirectorySongEntries];
+	
 	return entries;
+}
+
+- (NSArray *)songs {
+	if ([mValues objectForKey:gDirectoryPropertyDirectorySongEntries])
+		return [mValues objectForKey:gDirectoryPropertyDirectorySongEntries];
+	
+	// FIXME: we just assume for now that there is only one client.. this might have to change sometime.
+	if ([[[WindowController instance] musicClient] isConnected] == NO)
+		return nil;
+	
+	NSArray *songs = [[[WindowController instance] musicClient] entriesInDirectory:self withTypes:eSongType];
+	[mValues setObject:songs forKey:gDirectoryPropertyDirectorySongEntries];
+	
+	return songs;
 }
 
 - (Directory *) parent {

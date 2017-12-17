@@ -46,5 +46,6 @@ typedef enum {
 
 - (NSArray *) directoryEntries;
 - (Directory *) parent;
+- (NSArray *)songs;
 
 @end

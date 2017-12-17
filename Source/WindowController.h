@@ -35,6 +35,7 @@
 @class MainPlayerToolbarController;
 @class AppleRemoteController;
 @class SPMediaKeyTap;
+@class FileBrowserController;
 
 extern const NSString *nProfileSwitched;
 extern const NSString *dProfile;
@@ -49,6 +50,7 @@ extern const NSString *dProfile;
 	UpdateDatabaseController *mUpdateDatabaseController;
 	PlayListFilesController *mPlayListFilesController;
 	LicenseController *_licenseController;
+	FileBrowserController *mFileBrowserController;
 	
 	IBOutlet SUUpdater *mUpdater;
 		
