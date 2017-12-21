@@ -668,4 +668,12 @@
 	return 0; //For subclasses
 }
 
+- (BOOL)_anySegmentShowsBadge {
+	return NO;
+}
+
+- (int)_compressibleOptionsForControlView:(id)v {
+	return 0;
+}
+
 @end

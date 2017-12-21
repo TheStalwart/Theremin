@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment version="1050" defaultVersion="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <deployment version="1050" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,9 +13,9 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Theremin" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="ThereminPlayerWindow" animationBehavior="default" id="21" userLabel="Window" customClass="PWWindow">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="479" y="285" width="584" height="305"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
@@ -22,15 +24,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="584" height="305"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box title="Title" boxType="oldStyle" borderType="none" titlePosition="noTitle" id="344">
+                    <box boxType="oldStyle" borderType="none" title="Title" titlePosition="noTitle" id="344">
                         <rect key="frame" x="0.0" y="250" width="584" height="55"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                        <view key="contentView">
+                        <view key="contentView" id="Eet-g6-5dr">
                             <rect key="frame" x="0.0" y="0.0" width="584" height="55"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <imageView id="230">
-                                    <rect key="frame" x="-0.99999996346155795" y="0.0" width="584" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="584" height="55"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="empty" id="2104"/>
                                 </imageView>
@@ -70,7 +72,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="269">
+                                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="269">
                                     <rect key="frame" x="561" y="5" width="16" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 </progressIndicator>
@@ -119,13 +121,11 @@
                                 </imageView>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box title="Box" boxType="oldStyle" borderType="none" titlePosition="noTitle" id="281">
+                    <box boxType="oldStyle" borderType="none" title="Box" titlePosition="noTitle" id="281">
                         <rect key="frame" x="0.0" y="0.0" width="584" height="249"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <view key="contentView">
+                        <view key="contentView" id="pKN-pg-hoc">
                             <rect key="frame" x="0.0" y="0.0" width="584" height="249"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -133,14 +133,14 @@
                                     <rect key="frame" x="0.0" y="21" width="584" height="230"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" id="HZN-L3-2G6">
-                                        <rect key="frame" x="1" y="17" width="582" height="212"/>
+                                        <rect key="frame" x="1" y="0.0" width="582" height="229"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" emptySelection="NO" rowHeight="14" headerView="2137" id="286" customClass="PWTableView">
                                                 <rect key="frame" x="0.0" y="0.0" width="582" height="212"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
                                                     <tableColumn identifier="isPlaying" editable="NO" width="21" minWidth="4" maxWidth="1000" id="292">
@@ -243,7 +243,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="composer" width="69" minWidth="10" maxWidth="3.4028234663852886e+38" id="u4Z-Hh-kO9">
+                                                    <tableColumn identifier="composer" width="70" minWidth="10" maxWidth="3.4028234663852886e+38" id="u4Z-Hh-kO9">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Composer">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -266,7 +266,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </clipView>
                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2136">
-                                        <rect key="frame" x="1" y="-30" width="567" height="15"/>
+                                        <rect key="frame" x="1" y="191" width="568" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="2138">
@@ -334,12 +334,12 @@
                                 <popUpButton verticalHuggingPriority="750" id="1647">
                                     <rect key="frame" x="471" y="3" width="100" height="15"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="2103">
+                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="2103">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="miniSystem"/>
                                         <menu key="menu" title="OtherViews" id="1649">
                                             <items>
-                                                <menuItem title="Item 1" state="on" id="1650"/>
+                                                <menuItem title="Item 1" id="1650"/>
                                                 <menuItem title="Item 2" id="1651"/>
                                                 <menuItem title="Item 3" id="1652"/>
                                             </items>
@@ -351,15 +351,10 @@
                                 </popUpButton>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="604">
+                    <box verticalHuggingPriority="750" boxType="separator" id="604">
                         <rect key="frame" x="-24" y="248" width="627" height="5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
                     </box>
                 </subviews>
             </view>
@@ -799,6 +794,11 @@ Gw
                 <outlet property="mTableView" destination="286" id="415"/>
             </connections>
         </customObject>
+        <customObject id="Lzy-cb-p76" userLabel="FileBrowserController" customClass="FileBrowserController">
+            <connections>
+                <outlet property="mTableView" destination="286" id="Xbp-xb-Xim"/>
+            </connections>
+        </customObject>
         <window title="Authentication Required" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="527" userLabel="Authentication Panel" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -1003,7 +1003,7 @@ Gw
     </objects>
     <resources>
         <image name="NSApplicationIcon" width="128" height="128"/>
-        <image name="NSPathTemplate" width="13" height="10"/>
+        <image name="NSPathTemplate" width="16" height="10"/>
         <image name="empty" width="40" height="40"/>
         <image name="library" width="30" height="22"/>
         <image name="playlists" width="30" height="22"/>
